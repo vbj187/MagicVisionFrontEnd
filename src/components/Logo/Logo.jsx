@@ -5,7 +5,7 @@ import vision from './eye.png';
 
 const Logo = () => {
     return (
-        <div className="ma4 mt0">
+        <div className="ma4 mt0 center">
             <Tilt
                 className="Tilt br2 shadow-2"
                 options={{ max: 25 }}
