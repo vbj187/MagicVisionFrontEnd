@@ -12,7 +12,6 @@ class Register extends Component {
         }
     }
 
-
     onNameChange = (event) => {
         this.setState({ name: event.target.value })
     }
@@ -37,9 +36,9 @@ class Register extends Component {
         })
             .then(response => response.json())
             .then(user => {
-                if (user === 'success') {
-                    this.props.loadUser(user)
-                    this.props.onRouteChange('home')
+                if (user) {
+                    this.props.loadUser(user);
+                    this.props.onRouteChange('home');
                 }
             })
     }
