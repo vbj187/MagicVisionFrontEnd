@@ -15,4 +15,4 @@ function FaceRecognition({ imageUrl, box }) {
     )
 }
 
-export default FaceRecognition
+export default FaceRecognition;
