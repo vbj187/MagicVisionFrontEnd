@@ -43,8 +43,6 @@ class App extends Component {
   }
 
   displayFaceBox = (box) => {
-    console.log(box);
-
     this.setState({ box: box })
   }
 
@@ -73,19 +71,22 @@ class App extends Component {
   }
 
   render() {
+
+    const { isSignedIn, imageUrl, route, box } = this.state;
+
     return (
       <div className="App" >
-        <Navigation onRouteChange={this.onRouteChange} isSignedIn={this.state.isSignedIn} />
+        <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />
         {this.state.route === 'home' ?
           <div>
             <Logo />
             <Rank />
             <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-            <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+            <FaceRecognition box={box} imageUrl={imageUrl} />
           </div>
           :
           (
-            this.state.route === 'signin'
+            route === 'signin'
               ? <Signin onRouteChange={this.onRouteChange} />
               : <Register onRouteChange={this.onRouteChange} />
           )
